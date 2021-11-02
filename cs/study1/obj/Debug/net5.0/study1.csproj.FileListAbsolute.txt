@@ -1,0 +1,16 @@
+/home/koga/prog/cs/study1/bin/Debug/net5.0/study1
+/home/koga/prog/cs/study1/bin/Debug/net5.0/study1.deps.json
+/home/koga/prog/cs/study1/bin/Debug/net5.0/study1.runtimeconfig.json
+/home/koga/prog/cs/study1/bin/Debug/net5.0/study1.runtimeconfig.dev.json
+/home/koga/prog/cs/study1/bin/Debug/net5.0/study1.dll
+/home/koga/prog/cs/study1/bin/Debug/net5.0/ref/study1.dll
+/home/koga/prog/cs/study1/bin/Debug/net5.0/study1.pdb
+/home/koga/prog/cs/study1/obj/Debug/net5.0/study1.csproj.AssemblyReference.cache
+/home/koga/prog/cs/study1/obj/Debug/net5.0/study1.GeneratedMSBuildEditorConfig.editorconfig
+/home/koga/prog/cs/study1/obj/Debug/net5.0/study1.AssemblyInfoInputs.cache
+/home/koga/prog/cs/study1/obj/Debug/net5.0/study1.AssemblyInfo.cs
+/home/koga/prog/cs/study1/obj/Debug/net5.0/study1.csproj.CoreCompileInputs.cache
+/home/koga/prog/cs/study1/obj/Debug/net5.0/study1.dll
+/home/koga/prog/cs/study1/obj/Debug/net5.0/ref/study1.dll
+/home/koga/prog/cs/study1/obj/Debug/net5.0/study1.pdb
+/home/koga/prog/cs/study1/obj/Debug/net5.0/study1.genruntimeconfig.cache
