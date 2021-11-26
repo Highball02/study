@@ -6,5 +6,5 @@ pip3 install matplotlib
 
 
 # PYAUDIO  
-chunk 読み込む際のデータサイズ 1024にすることが多い  
+chunk 読み込む際のデータサイズ 1024*nにすることが多い  usbマイクは以上でできた4096
 rate サンプリングレート 44100hz=44.1khz  

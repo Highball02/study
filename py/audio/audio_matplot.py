@@ -2,7 +2,7 @@ import pyaudio
 import numpy
 import matplotlib.pyplot as plt
 
-chunk = 1024
+chunk = 4096
 FORMAT = pyaudio.paInt16 #int型16bit
 
 CHANNELS = 1 #モノラル（2にするとステレオ）
@@ -15,23 +15,24 @@ stream = p.open(format = FORMAT,
                 channels = CHANNELS,
                 rate = RATE,
                 input = True, 
-                frames_per_buffer = chunk)  # 録音開始（）内で設定
+                frames_per_buffer = chunk,
+                input_device_index=12)  # 録音開始（）内で設定
 #input_device_index = 1,  #録音デバイス設定
 #レコード開始
 print("Now Recording...")
-all = []
+data = []
 for i in range(0, int(RATE / chunk * RECORD_SECONDS)):
-    data = stream.read(chunk) #音声を読み取って、
-    all.append(data) #データを追加
+    stream_data = stream.read(chunk) #音声を読み取って、
+    data.append(stream_data) #データを追加
 
-#レコード終了
+
 print("Finished Recording.")
 
-stream.close()
+stream.close()#レコード終了
 p.terminate()
 
-#data = ''.join(all) #Python2用
-data = b"".join(all) #Python3用
+#data = ''.join(data) #Python2用
+data = b"".join(data) #Python3用
 
 #録音したデータを配列に変換
 result = numpy.frombuffer(data,dtype="int16") / float(2**15)
