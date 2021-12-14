@@ -6,5 +6,11 @@ pip3 install matplotlib
 
 
 # PYAUDIO  
-chunk 読み込む際のデータサイズ 1024*nにすることが多い  usbマイクは以上でできた4096
+chunk 読み込む際のデータサイズ 1024*nにすることが多い  usbマイクは4096以上でできた
 rate サンプリングレート 44100hz=44.1khz  
+
+
+# memo
+alsa のエラー？    /usr/share/alsa/
+gdb で動作確認 stream2をオープンした直後にダンプ
+
