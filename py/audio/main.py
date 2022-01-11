@@ -6,7 +6,7 @@ import threading
 import time
 
 
-chunk = 1024*100
+chunk = 1024*4
 FORMAT = pyaudio.paInt16  # int型16bits
 CHANNELS = 1  # モノラル（2にするとステレオ）
 RATE =44100*1.2  # サンプルレート（録音の音質）
@@ -48,7 +48,7 @@ def save1():
 
 def save2():
     print("stream2 start")
-    stream2 = p2.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True,output=True,
+    stream2 = p2.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True,output=False,
                       frames_per_buffer=chunk, input_device_index=mic2_index) 
     print("stream2 open")
     stream_data2 = []

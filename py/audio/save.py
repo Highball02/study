@@ -2,35 +2,37 @@ import pyaudio
 import wave
 
 chunk = 1024*4
-CHANNELS = 1 #モノラル
+CHANNELS = 1 #1:モノラル 2:ステレオ
 RATE = 44100  # サンプリングレート
 FORMAT = pyaudio.paInt16
-
 #print("Record seconds? ")
-RECORD_SECONDS = 3   #int(input())
+RECORD_SECONDS = 5   #int(input())
 
 p = pyaudio.PyAudio()
 # 録音開始
-print("start")
-stream = p.open(format=FORMAT, channels=CHANNELS, rate=RATE,output=True,
+
+print("rec start")
+stream = p.open(format=FORMAT, channels=CHANNELS, rate=RATE,output=False,
                 input=True, frames_per_buffer=chunk,input_device_index=12)
  
-s_data = []
-for i in range(0, int(RATE/chunk*RECORD_SECONDS)):
+outdata = []
+for i in range(0, int(RATE / chunk * RECORD_SECONDS)):
     data = stream.read(chunk)
-    s_data.append(data)
+    outdata.append(data)
 
+stream.stop_stream()
 stream.close()  # 録音終了
-print("end")
+print("rec end")
+SAMPLWIDTH=p.get_sample_size(FORMAT)
 p.terminate()
    
-s_data = b' '.join(s_data)
+outdata = b''.join(outdata)
 
-out = wave.open('sampl.wav', 'w')
-out.setnchannels(2)
-out.setsampwidth(2)
+out = wave.open('sampl.wav', 'wb')
+out.setnchannels(CHANNELS)
+out.setsampwidth(SAMPLWIDTH)
 out.setframerate(RATE)
-out.writeframes(s_data)
+out.writeframes(outdata)
 out.close()
-del out
-print(p.is_format_supported(44100,12,1,pyaudio.paInt16))
+#del out
+#print(p.is_format_supported(44100,12,1,pyaudio.paInt8))
